@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: todo-app
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost/db_todo
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
