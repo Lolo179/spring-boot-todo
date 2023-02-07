@@ -3,7 +3,9 @@ package com.luisdev.springboot.todo.app.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,5 +37,11 @@ public class TaskController {
 	@GetMapping("/status/{status}")
 	public List<Task> findAllbyStatus(@PathVariable("status")TaskStatus status){
 		return taskService.findAllbyTaskStatus(status);
+	}
+	
+	@PatchMapping("/mark-as-finished/{id}")
+	public ResponseEntity<Void> markAsFinished(@PathVariable("id") Long id){
+		taskService.updateTaskAsFinished(id);
+		return ResponseEntity.noContent().build();
 	}
 }
