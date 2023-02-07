@@ -2,7 +2,6 @@ package com.luisdev.springboot.todo.app.models.service.dto;
 
 import java.time.LocalDateTime;
 
-import lombok.Data;
 
 
 public class TaskInDTO {

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.luisdev.springboot.todo.app.mapper.TaskInDTOtoTask;
 import com.luisdev.springboot.todo.app.models.dao.ITaskDao;
 import com.luisdev.springboot.todo.app.models.entity.Task;
+import com.luisdev.springboot.todo.app.models.entity.TaskStatus;
 import com.luisdev.springboot.todo.app.models.service.dto.TaskInDTO;
 
 @Service
@@ -30,9 +31,18 @@ public class TaskServiceImpl implements ITaskService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Task> findAll() {
 		
 		return  (List<Task>) taskDao.findAll();
+		
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Task> findAllbyTaskStatus(TaskStatus status) {
+
+		return taskDao.findAllByTaskStatus(status);
 	}
 
 

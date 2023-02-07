@@ -25,7 +25,7 @@ public class Task implements Serializable {
 	private LocalDateTime createAt;
 	private LocalDateTime eta; // fecha de finalizacion estimada
 	private boolean finished;
-	private TaskStatus taskstatus;
+	private TaskStatus taskStatus;
 
 	public Long getId() {
 		return id;
@@ -76,11 +76,11 @@ public class Task implements Serializable {
 	}
 
 	public TaskStatus getTaskstatus() {
-		return taskstatus;
+		return taskStatus;
 	}
 
 	public void setTaskstatus(TaskStatus taskstatus) {
-		this.taskstatus = taskstatus;
+		this.taskStatus = taskstatus;
 	}
 
 	public static long getSerialversionuid() {
